@@ -1,16 +1,10 @@
-FROM cimg/rust:1.40.0 AS tools-builder
+FROM cimg/rust:1.56.1 AS tools-builder
 
-# Update rust using rustup.
-#
-# We cannot use a newer cimg/rust version to build the tools,
-# because newer images use an incompatible version of libc.
-RUN rustup default 1.48.0
-
-RUN cargo install --root /home/circleci/project just --version ^0.8
+RUN cargo install --root /home/circleci/project just --version ^0.10
 RUN cargo install --root /home/circleci/project cargo-readme --version ^3.2
 RUN cargo install --root /home/circleci/project cargo-deadlinks --version ^0.8
 
-FROM cimg/rust:1.40.0
+FROM cimg/rust:1.56.1
 
 USER root
 
