@@ -1,10 +1,10 @@
-FROM cimg/rust:1.56.1 AS tools-builder
+FROM cimg/rust:1.57.0 AS tools-builder
 
 RUN cargo install --root /home/circleci/project just --version ^0.10
 RUN cargo install --root /home/circleci/project cargo-readme --version ^3.2
 RUN cargo install --root /home/circleci/project cargo-deadlinks --version ^0.8
 
-FROM cimg/rust:1.56.1
+FROM cimg/rust:1.57.0
 
 USER root
 
