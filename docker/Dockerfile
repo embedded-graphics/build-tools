@@ -1,8 +1,11 @@
 FROM cimg/rust:1.57.0 AS tools-builder
 
+RUN sudo apt update && sudo apt install -qq libssl-dev && sudo rm -rf /var/apt/lists/*
+
 RUN cargo install --root /home/circleci/project just --version ^0.10
 RUN cargo install --root /home/circleci/project cargo-readme --version ^3.2
 RUN cargo install --root /home/circleci/project cargo-deadlinks --version ^0.8
+RUN cargo install --root /home/circleci/project lychee --version ^0.8
 
 FROM cimg/rust:1.57.0
 
