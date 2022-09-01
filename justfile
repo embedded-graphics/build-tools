@@ -1,4 +1,4 @@
-ci_build_image := "jamwaffles/circleci-embedded-graphics:1.57.0-1"
+ci_build_image := "jamwaffles/circleci-embedded-graphics:1.61.0-0"
 
 #--------
 # Docker
